@@ -3,7 +3,7 @@ import { Link } from "gatsby";
 
 const Home = () => (
   <section>
-    Hello world!
+    <h1>Hello world!</h1>
     <Link to="articles">Articles</Link>
   </section>
 );
