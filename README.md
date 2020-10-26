@@ -1,7 +1,5 @@
 <p align="center">
-  <a href="">
-    <img alt="" src="https://www.datocms-assets.com/12596/1603722072-louis-blog-hero.png" />
-  </a>
+    <img alt="" src="https://i.ibb.co/cwYq9mc/Louis-blog-hero.png" />
 </p>
 
 <h1 align="center">
