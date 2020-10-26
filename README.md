@@ -1,6 +1,6 @@
 <p align="center">
   <a href="">
-    <img alt="" src="https://www.datocms-assets.com/12596/1603722072-louis-blog-hero.png" width="60" />
+    <img alt="" src="https://www.datocms-assets.com/12596/1603722072-louis-blog-hero.png" />
   </a>
 </p>
 
