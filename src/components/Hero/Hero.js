@@ -1,5 +1,5 @@
 import React from "react";
-import { useStaticQuery } from "gatsby";
+import { useStaticQuery, graphql } from "gatsby";
 import Img from "gatsby-image";
 import NewsletterForm from "../NewsletterForm/NewsletterForm";
 import AutorProfile from "../AuthorProfile/AuthorProfile";
@@ -27,7 +27,7 @@ const Home = () => {
             Create amazing <span className="text-blue-500">experience</span>
           </h1>
           <p className="font-medium text-gray-600 text-2xl">
-            Hi! I’m Louis and I am professional photograper since 2001. I’m
+            Hi! I’m Louis and I am professional photographer since 2001. I’m
             writing about cameras, design and photographer stuff
           </p>
           <NewsletterForm />
@@ -38,7 +38,7 @@ const Home = () => {
         <Img
           fluid={data.imageSharp.fluid}
           className={`h-full w-4/5 ${styles.heroImage}`}
-          alt="Man taking photo of mountain"
+          alt="Man taking photo on stairs"
         />
       </div>
     </header>
