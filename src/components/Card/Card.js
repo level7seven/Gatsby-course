@@ -9,7 +9,7 @@ const Card = () => (
         alt="blog"
       />
       <div class="p-6">
-        <span class="tracking-widest text-xs title-font font-medium text-gray-500 mb-1">
+        <span class="tracking-widest text-xs title-font font-medium text-gray-600 mb-1">
           Gear
         </span>
         <h3 class="title-font text-lg font-medium text-gray-900 mb-3">
