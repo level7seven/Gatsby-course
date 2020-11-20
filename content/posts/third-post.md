@@ -1,5 +1,6 @@
 ---
-title: "Third post"
+title: "Photo lifestyle"
+slug: "photo-lifestyle"
 date: "20-13-2020"
 category: "Gear"
 image: "../images/daily.png"

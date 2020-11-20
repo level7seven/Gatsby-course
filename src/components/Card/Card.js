@@ -1,11 +1,12 @@
 import React from "react";
 import Img from "gatsby-image";
+import { Link } from "gatsby";
 
-const Card = ({ image, category, title, excerpt }) => (
-  <article className="p-4 md:w-1/3">
+const Card = ({ image, category, title, excerpt, slug }) => (
+  <article className="p-4 w-1/3">
     <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
       <Img
-        className="lg:h-48 md:h-36 w-full object-cover object-center"
+        className="h-48 h-36 w-full object-cover object-center"
         fluid={image.childImageSharp.fluid}
         alt="blog"
       />
@@ -18,21 +19,24 @@ const Card = ({ image, category, title, excerpt }) => (
         </h3>
         <p className="leading-relaxed mb-3">{excerpt}</p>
         <div className="flex items-center flex-wrap ">
-          <a className="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">
+          <Link
+            to={slug}
+            className="text-indigo-500 inline-flex items-center mb-0"
+          >
             Learn More
             <svg
               className="w-4 h-4 ml-2"
               viewBox="0 0 24 24"
               stroke="currentColor"
-              stroke-width="2"
+              strokeWidth="2"
               fill="none"
-              stroke-linecap="round"
-              stroke-linejoin="round"
+              strokeLinecap="round"
+              strokeLinejoin="round"
             >
               <path d="M5 12h14"></path>
               <path d="M12 5l7 7-7 7"></path>
             </svg>
-          </a>
+          </Link>
         </div>
       </div>
     </div>

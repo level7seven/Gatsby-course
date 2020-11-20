@@ -1,6 +1,7 @@
 ---
-title: "First post"
-date: "20-13-2020"
+title: "My awesome first post"
+slug: "first-post"
+date: "20-08-2020"
 category: "Gear"
 image: "../images/light.png"
 ---

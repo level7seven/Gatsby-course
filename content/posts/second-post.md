@@ -1,5 +1,6 @@
 ---
 title: "How to choose your first camera? "
+slug: "first-camera"
 date: "20-11-2020"
 category: "Gear"
 image: "../images/camera.png"
