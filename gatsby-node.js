@@ -1,5 +1,4 @@
 const path = require("path");
-const slugify = require("slugify");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
@@ -16,10 +15,6 @@ exports.createPages = async ({ graphql, actions }) => {
     }
   `);
   result.data.allDatoCmsArticle.edges.forEach(({ node }) => {
-    // const slug = slugify(node.frontmatter.title, {
-    //   lower: true,
-    // });
-
     const { slug } = node;
 
     createPage({
