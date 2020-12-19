@@ -7,7 +7,7 @@ const Card = ({ image, category, title, excerpt, slug }) => (
     <div className="h-full border-2 border-gray-200 rounded-lg overflow-hidden">
       <Img
         className="h-48 h-36 w-full object-cover object-center"
-        fluid={image.childImageSharp.fluid}
+        fluid={image}
         alt="blog"
       />
       <div className="p-6">

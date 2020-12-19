@@ -1,23 +1,27 @@
 const path = require("path");
+const slugify = require("slugify");
 
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   const pageTemplate = path.resolve(`./src/templates/postTemplate.js`);
   const result = await graphql(`
     query {
-      allMarkdownRemark {
+      allDatoCmsArticle {
         edges {
           node {
-            frontmatter {
-              slug
-            }
+            slug
           }
         }
       }
     }
   `);
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
-    const { slug } = node.frontmatter;
+  result.data.allDatoCmsArticle.edges.forEach(({ node }) => {
+    // const slug = slugify(node.frontmatter.title, {
+    //   lower: true,
+    // });
+
+    const { slug } = node;
+
     createPage({
       path: slug,
       component: pageTemplate,

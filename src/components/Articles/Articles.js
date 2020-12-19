@@ -4,23 +4,19 @@ import Card from "../Card/Card";
 
 const query = graphql`
   query {
-    allMarkdownRemark {
+    allDatoCmsArticle {
       edges {
         node {
-          frontmatter {
-            category
-            date
-            image {
-              childImageSharp {
-                fluid {
-                  ...GatsbyImageSharpFluid_tracedSVG
-                }
-              }
-            }
-            title
-            slug
-          }
+          title
+          slug
+          category
           excerpt
+          publishedat(formatString: "DD-MM-YYYY")
+          thumbnail {
+            fluid {
+              ...GatsbyDatoCmsFluid_tracedSVG
+            }
+          }
         }
       }
     }
@@ -39,21 +35,19 @@ const Articles = () => {
           </p>
         </div>
         <div className="flex flex-wrap -m-4">
-          {data.allMarkdownRemark.edges.map(
-            ({ node: { frontmatter, excerpt } }) => {
-              const { category, image, title, slug } = frontmatter;
-              return (
-                <Card
-                  key={slug}
-                  category={category}
-                  image={image}
-                  title={title}
-                  excerpt={excerpt}
-                  slug={slug}
-                />
-              );
-            }
-          )}
+          {data.allDatoCmsArticle.edges.map(({ node }) => {
+            const { title, slug, excerpt, category, thumbnail } = node;
+            return (
+              <Card
+                key={slug}
+                category={category}
+                image={thumbnail.fluid}
+                title={title}
+                excerpt={excerpt}
+                slug={slug}
+              />
+            );
+          })}
         </div>
       </div>
     </section>

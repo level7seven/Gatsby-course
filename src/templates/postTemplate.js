@@ -5,44 +5,47 @@ import { graphql } from "gatsby";
 
 export const query = graphql`
   query($slug: String!) {
-    markdownRemark(frontmatter: { slug: { eq: $slug } }) {
-      html
-      frontmatter {
-        title
-        date
-        category
-        image {
-          childImageSharp {
-            fixed(quality: 100, width: 200, height: 200) {
-              ...GatsbyImageSharpFixed_tracedSVG
-            }
-          }
+    datoCmsArticle(slug: { eq: $slug }) {
+      slug
+      title
+      category
+      content
+      thumbnail {
+        fixed(width: 200, height: 200) {
+          ...GatsbyDatoCmsFixed_tracedSVG
         }
       }
+      publishedat(formatString: "DD-MM-YYYY")
     }
   }
 `;
 
 const PostTemplate = ({ data }) => {
-  const { frontmatter, html } = data.markdownRemark;
-  const { image, category, title, date } = frontmatter;
+  const {
+    title,
+    category,
+    content,
+    thumbnail,
+    publishedat,
+  } = data.datoCmsArticle;
+
   return (
     <article className="mx-auto flex flex-col w-full justify-center items-center my-24 max-w-3xl">
       <div className="flex w-full justify-start	items-start my-24">
         <Img
           className="object-cover object-center rounded-lg"
-          fixed={image.childImageSharp.fixed}
+          fixed={thumbnail.fixed}
           alt=""
         />
         <div className="flex flex-col m-3 mx-6 justify-start	items-start">
           <span className="text-blue-600">{category}</span>
           <h1 className="text-3xl">{title}</h1>
-          <span>{date}</span>
+          <span>{publishedat}</span>
         </div>
       </div>
       <div
         className={styles.markdown}
-        dangerouslySetInnerHTML={{ __html: html }}
+        dangerouslySetInnerHTML={{ __html: content }}
       />
     </article>
   );
