@@ -1,12 +1,34 @@
-/**
- * Configure your Gatsby site with this file.
- *
- * See: https://www.gatsbyjs.com/docs/gatsby-config/
- */
+const path = require(`path`);
+require("dotenv").config();
 
 module.exports = {
-  /* Your site config here */
+  siteMetadata: {
+    title: `Louis Edwards`,
+    author: `Louis Edwards`,
+    description: `Hi! I’m Louis and I am professional photographer since 2001. I’m writing about cameras, design and photographer stuff`,
+    siteUrl: process.env.SITE_URL,
+    image: `/static/homepage.png`,
+    twitterUsername: `louis_edwards_photo`,
+  },
   plugins: [
+    `gatsby-plugin-sharp`,
+    `gatsby-transformer-sharp`,
+    `gatsby-transformer-remark`,
+
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src/assets/images`),
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `content`,
+        path: path.join(__dirname, `content`),
+      },
+    },
     {
       resolve: `gatsby-plugin-sass`,
       options: {
@@ -14,6 +36,12 @@ module.exports = {
           require("tailwindcss"),
           require("./tailwind.config.js"),
         ],
+      },
+    },
+    {
+      resolve: "gatsby-source-datocms",
+      options: {
+        apiToken: process.env.API_DATO_CMS,
       },
     },
   ],
